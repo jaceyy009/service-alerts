@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTA Alerts</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="ROTA Logo" width="100">
+        <h1>ROTA Alerts</h1>
+        <button id="mode-toggle">Toggle Dark Mode</button>
+        <a href="/">Home</a>
+    </header>
+    <section>
+        <label for="route-filter">Filter by Route:</label>
+        <select id="route-filter">
+            <option value="">All</option>
+        </select>
+        <label for="severity-filter">Filter by Severity:</label>
+        <select id="severity-filter">
+            <option value="">All</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Emergency">Emergency</option>
+        </select>
+    </section>
+    <table id="alerts-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Severity</th>
+                <th>Effective Date</th>
+                <th>Expiration Date</th>
+                <th>Routes</th>
+                <th>Bound</th>
+                <th>Cause</th>
+                <th>Description</th>
+                <th>Missed Stops</th>
+                <th>Temporary Stops</th>
+                <th>Published By</th>
+                <th>Approved</th>
+                <th>Approved By</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="/js/alerts.js"></script>
+    <script>
+        const toggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        const mode = localStorage.getItem('mode') || 'light';
+        body.classList.add(mode);
+        toggle.textContent = mode === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+            const newMode = body.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('mode', newMode);
+            toggle.textContent = newMode === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+        });
+    </script>
+</body>
+</html>
