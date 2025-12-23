@@ -1,5 +1,5 @@
 async function loadAlerts() {
-    const response = await fetch('/alerts.csv');
+    const response = await fetch('https://jaceyy009.github.io/service-alerts/alerts.csv');
     const csv = await response.text();
     const lines = csv.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',').map(h => h.trim());
@@ -50,7 +50,7 @@ async function loadAlerts() {
                 const td = document.createElement('td');
                 if (header === 'published_by' || header === 'approved_by') {
                     const a = document.createElement('a');
-                    a.href = `/users/${alert[header]}.html`;
+                    a.href = `https://jaceyy009.github.io/service-alerts/users/${alert[header]}.html`;
                     a.textContent = alert[header];
                     td.appendChild(a);
                 } else if (header === 'description' && alert.image_url) {
