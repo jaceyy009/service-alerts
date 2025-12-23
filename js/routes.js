@@ -1,5 +1,5 @@
 async function loadRoutes() {
-    const response = await fetch('/routes.csv');
+    const response = await fetch('https://jaceyy009.github.io/service-alerts/routes.csv');
     const csv = await response.text();
     const lines = csv.split('\n').filter(line => line.trim());
     const headers = lines[0].split(',').map(h => h.trim());
