@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROTA Routes & Schedules</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="/images/logo.png" alt="ROTA Logo" width="100">
+        <h1>ROTA Routes & Schedules</h1>
+        <button id="mode-toggle">Toggle Dark Mode</button>
+        <a href="/">Home</a>
+    </header>
+    <table id="routes-table">
+        <thead>
+            <tr>
+                <th>Route ID</th>
+                <th>Name</th>
+                <th>Schedule</th>
+                <th>Stops</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="/js/routes.js"></script>
+    <script>
+        const toggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        const mode = localStorage.getItem('mode') || 'light';
+        body.classList.add(mode);
+        toggle.textContent = mode === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+            const newMode = body.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('mode', newMode);
+            toggle.textContent = newMode === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+        });
+    </script>
+</body>
+</html>
