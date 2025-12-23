@@ -1,0 +1,3 @@
+id,severity,effective_date,expiration_date,routes,bound,cause,description,missed_stops,temporary_stops,published_by,approved,approved_by,created_at,updated_at
+1,Medium,2025-02-11,2026-10-01,16,Eastbound,Bridge replacement construction project,Buses will operate via W Greenwich St and N 4th St,785-792,190-193 721-722,megan-carter,yes,william-thompson,2025-12-17 16:59
+2,Emergency,2025-12-17,,All,All,Terroristic threat,All ROTA service is currently suspended,,,jace-castillo,Yes,william-thompson,2025-12-17 17:07
